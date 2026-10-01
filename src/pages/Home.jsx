@@ -10,8 +10,8 @@ const heroHeadlines = [
 ]
 
 const productHighlights = [
-  ['Tablets', '/product-values/tablet.png', 'Solid oral dosage manufacturing capabilities for a broad generic portfolio.'],
-  ['Capsules', '/product-values/capsule.png', 'Capsule-form products within the planned finished dosage portfolio.'],
+  ['WHO-GMP Focus', '/manufacture-imgs/gmp-who-2-1024x673-Photoroom.png', 'Quality systems and plant standards designed around recognized good manufacturing practices.'],
+  ['Tablet and Capsule', '/product-values/tablet.png', 'Solid oral dosage manufacturing capabilities for a broad generic portfolio.'],
   ['Oral Liquid Preparations', '/product-values/oral-liquid.png', 'Solutions, syrups and related liquid dosage forms for varied patient needs.'],
   ['Sachet', '/product-values/satchek.png', 'Flexible unit-dose formats designed for practical packaging and distribution.'],
 ]
