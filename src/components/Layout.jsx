@@ -17,26 +17,10 @@ const navigation = [
 ]
 
 const subProducts = [
-  {
-    title: 'Tablets',
-    to: '/products/tablets',
-    img: '/manufacture-imgs/117-1174315_pills-png-image-transparent-background-medicine-tablet-png-Photoroom.png',
-  },
-  {
-    title: 'Capsule',
-    to: '/products/capsule',
-    img: '/manufacture-imgs/capsules-clean.jpg',
-  },
-  {
-    title: 'Oral Liquid',
-    to: '/products/oral-liquid',
-    img: '/manufacture-imgs/istockphoto-457410879-612x612-1-Photoroom.png',
-  },
-  {
-    title: 'Sachet',
-    to: '/products/sachet',
-    img: '/manufacture-imgs/pngtree-black-sachets-with-wet-wipes-png-image_4740013-Photoroom.png',
-  },
+  { title: 'Tablets', to: '/products/tablets', img: '/manufacture-imgs/117-1174315_pills-png-image-transparent-background-medicine-tablet-png-Photoroom.png' },
+  { title: 'Capsule', to: '/products/capsule', img: '/manufacture-imgs/capsules-clean.jpg' },
+  { title: 'Oral Liquid', to: '/products/oral-liquid', img: '/manufacture-imgs/istockphoto-457410879-612x612-1-Photoroom.png' },
+  { title: 'Sachet', to: '/products/sachet', img: '/manufacture-imgs/pngtree-black-sachets-with-wet-wipes-png-image_4740013-Photoroom.png' },
 ]
 
 export default function Layout() {
@@ -44,6 +28,7 @@ export default function Layout() {
   const [isClosing, setIsClosing] = useState(false)
   const [productOpen, setProductOpen] = useState(false)
   const [headerHidden, setHeaderHidden] = useState(false)
+  const [navOnWhite, setNavOnWhite] = useState(false)
   const closeTimer = useRef(null)
   const exitTimer = useRef(null)
   const location = useLocation()
@@ -99,7 +84,10 @@ export default function Layout() {
   // Close drawer on ESC
   useEffect(() => {
     const handleKeyDown = (e) => {
-      if (e.key === 'Escape') closeMobileMenu()
+      if (e.key === 'Escape') {
+        closeMobileMenu()
+        setProductOpen(false)
+      }
     }
     window.addEventListener('keydown', handleKeyDown)
     return () => window.removeEventListener('keydown', handleKeyDown)
@@ -150,6 +138,53 @@ export default function Layout() {
     }
   }, [mobileOpen, location.pathname])
 
+  useEffect(() => {
+    let frame = 0
+    const header = document.querySelector('.header')
+
+    const updateSurface = () => {
+      frame = 0
+      const sampleY = window.innerWidth <= 768 ? 38 : 43
+      const layers = document.elementsFromPoint(window.innerWidth / 2, sampleY)
+
+      for (const element of layers) {
+        if (header.contains(element)) continue
+        if (['IMG', 'VIDEO', 'CANVAS', 'IFRAME'].includes(element.tagName)) {
+          setNavOnWhite(false)
+          return
+        }
+
+        const style = window.getComputedStyle(element)
+        if (style.backgroundImage !== 'none') {
+          setNavOnWhite(false)
+          return
+        }
+
+        const values = style.backgroundColor.match(/[\d.]+/g)?.map(Number)
+        if (!values || values.length < 3 || (values[3] ?? 1) < .05) continue
+
+        const [red, green, blue, alpha = 1] = values
+        setNavOnWhite(alpha >= .95 && Math.min(red, green, blue) >= 245 && Math.max(red, green, blue) - Math.min(red, green, blue) <= 10)
+        return
+      }
+
+      setNavOnWhite(true)
+    }
+
+    const scheduleUpdate = () => {
+      if (!frame) frame = window.requestAnimationFrame(updateSurface)
+    }
+
+    scheduleUpdate()
+    window.addEventListener('scroll', scheduleUpdate, { passive: true })
+    window.addEventListener('resize', scheduleUpdate)
+    return () => {
+      window.removeEventListener('scroll', scheduleUpdate)
+      window.removeEventListener('resize', scheduleUpdate)
+      if (frame) window.cancelAnimationFrame(frame)
+    }
+  }, [location.pathname, mobileOpen])
+
   const showProducts = () => {
     window.clearTimeout(closeTimer.current)
     setProductOpen(true)
@@ -169,7 +204,7 @@ export default function Layout() {
       onMouseEnter={showProducts}
       onMouseLeave={hideProducts}
       onFocus={showProducts}
-      onClick={() => setProductOpen(v => !v)}
+      onClick={showProducts}
       aria-expanded={productOpen}
       aria-controls="product-menu"
     >
@@ -192,7 +227,7 @@ export default function Layout() {
       )}
 
       <header
-        className={`header ${mobileOpen ? 'menu-open' : ''} ${headerHidden ? 'is-hidden' : ''}`}
+        className={`header ${mobileOpen ? 'menu-open' : ''} ${headerHidden ? 'is-hidden' : ''} ${navOnWhite ? 'on-white-surface' : ''}`}
         onFocusCapture={() => setHeaderHidden(false)}
       >
         <div className="navbar-card">
@@ -215,7 +250,7 @@ export default function Layout() {
 
           <div
             id="product-menu"
-            className={`dropdown-panel ${productOpen ? 'show' : ''}`}
+            className={`dropdown-panel product-dropdown ${productOpen ? 'show' : ''}`}
             onMouseEnter={showProducts}
             onMouseLeave={hideProducts}
           >
@@ -223,8 +258,13 @@ export default function Layout() {
               <span>Explore</span>
               <strong>All Products</strong>
             </Link>
-            <div className="dropdown-links">
-              {productLinks.map(([label, to]) => <Link key={to} to={to}>{label}<Icon name="arrow-up-right" size={14} /></Link>)}
+            <div className="desktop-product-grid">
+              {subProducts.map(sub => (
+                <Link className="desktop-product-card" to={sub.to} key={sub.to}>
+                  <div className="nav-product-visual"><img src={sub.img} alt="" /></div>
+                  <span>{sub.title}</span>
+                </Link>
+              ))}
             </div>
           </div>
 
@@ -272,10 +312,8 @@ export default function Layout() {
                     className="broken-grid-cell"
                     onClick={closeMobileMenu}
                   >
+                    <div className="nav-product-visual"><img src={sub.img} alt="" /></div>
                     <span className="broken-grid-title">{sub.title}</span>
-                    <div className="broken-grid-visual">
-                      <img src={sub.img} alt={sub.title} />
-                    </div>
                   </Link>
                 ))}
               </div>
@@ -296,7 +334,7 @@ export default function Layout() {
 
       <footer className="footer">
         <div className="footer-card">
-          <img className="footer-art" src="/footer.png" alt="" aria-hidden="true" />
+          <img className="footer-art" src="/Medical%20Icon%20Mosaic%20Hand.png" alt="" aria-hidden="true" />
           <div className="footer-content">
             <Link className="footer-logo" to="/" aria-label={`${site.company} home`}>
               <img src={media.logo} alt="" onError={(e) => { e.currentTarget.style.display = 'none'; e.currentTarget.nextElementSibling.style.display = 'flex' }} />

@@ -4,6 +4,7 @@ export default function ProductDirectory({
   items = [],
   title = 'Explore an overview of our products and search for information on our most popular products.',
   eyebrow = 'Product Listings',
+  className = '',
 }) {
   const [searchQuery, setSearchQuery] = useState('')
   const [thumbTop, setThumbTop] = useState(0)
@@ -120,7 +121,7 @@ export default function ProductDirectory({
   const isCompact = items.length <= 4
 
   return (
-    <section className="product-listings-hero" aria-label="Product Directory">
+    <section className={`product-listings-hero ${className}`.trim()} aria-label="Product Directory">
       <div className="product-listings-container">
         {/* Left Column: Eyebrow, Main Heading, Search */}
         <div className="product-listings-left">

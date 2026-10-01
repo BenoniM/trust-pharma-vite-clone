@@ -4,7 +4,7 @@ import AboutHero from '../components/AboutHero.jsx'
 export default function About() {
   return <>
     <AboutHero />
-    <section className="who-section" aria-label="Who We Are">
+    <section className="who-section hero-overlap-section" aria-label="Who We Are">
       <div className="who-container">
         <div className="who-label">
           <span>WHO WE ARE</span>

@@ -3,7 +3,7 @@ export const site = {
   shortCompany: 'Trust Pharma',
   phone: '(+251) 111-71-82-54',
   email: 'info@trustethiopharma.com',
-  office: 'Gulele Subcity, Woreda 09, Droga Building, Addis Ababa, Ethiopia',
+  office: 'Afework Building, 5th Floor, Bambis, Kirkos, Addis Ababa, Ethiopia',
   factory: 'Debre Birhan City Administration, Amhara Region, Ethiopia',
   tagline: 'Serving the People',
 }

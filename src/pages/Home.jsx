@@ -85,10 +85,10 @@ export default function Home() {
 
     <section className="trust-strip">
       <div className="container trust-strip-grid">
-        <div><h2>Quality<br />Focused</h2><p>Consistent systems</p></div>
-        <div><h2>Local<br />Manufacturing</h2><p>Debre Birhan, Ethiopia</p></div>
-        <div><h2>R&amp;D<br />Driven</h2><p>Continuous improvement</p></div>
-        <div><h2>Export<br />Ready</h2><p>Regional ambition</p></div>
+        <div><h2>Quality Focused</h2><p>Consistent systems</p></div>
+        <div><h2>Local Manufacturing</h2><p>Debre Birhan, Ethiopia</p></div>
+        <div><h2>R&amp;D Driven</h2><p>Continuous improvement</p></div>
+        <div><h2>Export Ready</h2><p>Regional ambition</p></div>
       </div>
     </section>
 

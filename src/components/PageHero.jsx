@@ -52,33 +52,33 @@ export default function PageHero({
 
   /* ── Rich split-layout mode ────────────────────────── */
   return (
-    <section className="about-hero" aria-label={title}>
-      <div className="about-hero-inner">
+    <section className="page-gallery-hero" aria-label={title}>
+      <div className="page-gallery-hero-inner">
         {/* Left Side */}
-        <div className="about-hero-left">
-          <div className="about-hero-top">
-            <span className="about-hero-tag">{tag || eyebrow}</span>
-            <h1 className="about-hero-title">{title}</h1>
-            {tagline && <p className="about-hero-tagline">{tagline}</p>}
+        <div className="page-gallery-hero-left">
+          <div className="page-gallery-hero-top">
+            <span className="page-gallery-hero-tag">{tag || eyebrow}</span>
+            <h1 className="page-gallery-hero-title">{title}</h1>
+            {tagline && <p className="page-gallery-hero-tagline">{tagline}</p>}
           </div>
 
-          <div className="about-hero-bottom">
-            <strong className="about-hero-brand">
+          <div className="page-gallery-hero-bottom">
+            <strong className="page-gallery-hero-brand">
               {brandLine?.name ?? 'Trust Pharmaceuticals'}
             </strong>
-            <span className="about-hero-subline">
+            <span className="page-gallery-hero-subline">
               {brandLine?.sub ?? 'Pvt. Ltd. Co. · Debre Birhan & Addis Ababa'}
             </span>
           </div>
         </div>
 
         {/* Right Side – staggered grid */}
-        <div className="about-hero-right">
-          <div className="about-hero-grid">
+        <div className="page-gallery-hero-right">
+          <div className="page-gallery-hero-grid">
             {images.map((img) => (
               <div
                 key={img.id}
-                className={`about-hero-cell cell-col-${img.col} cell-row-${img.row}`}
+                className={`page-gallery-hero-cell cell-col-${img.col} cell-row-${img.row}`}
                 style={{
                   gridColumn: img.col,
                   gridRow: img.row,
