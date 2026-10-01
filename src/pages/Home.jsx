@@ -10,10 +10,10 @@ const heroHeadlines = [
 ]
 
 const productHighlights = [
-  ['WHO-GMP Focus', '/manufacture-imgs/gmp-who-2-1024x673-Photoroom.png', 'Quality systems and plant standards designed around recognized good manufacturing practices.'],
-  ['Tablet and Capsule', '/manufacture-imgs/117-1174315_pills-png-image-transparent-background-medicine-tablet-png-Photoroom.png', 'Solid oral dosage manufacturing capabilities for a broad generic portfolio.'],
-  ['Oral Liquid Preparations', '/manufacture-imgs/istockphoto-457410879-612x612-1-Photoroom.png', 'Solutions, syrups and related liquid dosage forms for varied patient needs.'],
-  ['Sachet', '/manufacture-imgs/pngtree-black-sachets-with-wet-wipes-png-image_4740013-Photoroom.png', 'Flexible unit-dose formats designed for practical packaging and distribution.'],
+  ['Tablets', '/product-values/tablet.png', 'Solid oral dosage manufacturing capabilities for a broad generic portfolio.'],
+  ['Capsules', '/product-values/capsule.png', 'Capsule-form products within the planned finished dosage portfolio.'],
+  ['Oral Liquid Preparations', '/product-values/oral-liquid.png', 'Solutions, syrups and related liquid dosage forms for varied patient needs.'],
+  ['Sachet', '/product-values/satchek.png', 'Flexible unit-dose formats designed for practical packaging and distribution.'],
 ]
 
 const services = [

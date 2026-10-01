@@ -17,10 +17,10 @@ const navigation = [
 ]
 
 const subProducts = [
-  { title: 'Tablets', to: '/products/tablets', img: '/manufacture-imgs/117-1174315_pills-png-image-transparent-background-medicine-tablet-png-Photoroom.png' },
-  { title: 'Capsule', to: '/products/capsule', img: '/manufacture-imgs/capsules-clean.jpg' },
-  { title: 'Oral Liquid', to: '/products/oral-liquid', img: '/manufacture-imgs/istockphoto-457410879-612x612-1-Photoroom.png' },
-  { title: 'Sachet', to: '/products/sachet', img: '/manufacture-imgs/pngtree-black-sachets-with-wet-wipes-png-image_4740013-Photoroom.png' },
+  { title: 'Tablets', to: '/products/tablets', img: '/product-values/tablet.png' },
+  { title: 'Capsule', to: '/products/capsule', img: '/product-values/capsule.png' },
+  { title: 'Oral Liquid', to: '/products/oral-liquid', img: '/product-values/oral-liquid.png' },
+  { title: 'Sachet', to: '/products/sachet', img: '/product-values/satchek.png' },
 ]
 
 export default function Layout() {
