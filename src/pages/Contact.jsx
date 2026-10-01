@@ -36,7 +36,7 @@ export default function Contact() {
       {/* ── Page Hero ── */}
       <ExpandingHero
         tag="Reach Out"
-        title="CONTACT US"
+        title="Contact Us"
         tagline="Have a question, partnership inquiry, or product discussion? We'd love to hear from you — get in touch with our team."
         image={heroImage.url}
         imageAlt={heroImage.alt}

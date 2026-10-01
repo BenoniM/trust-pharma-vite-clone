@@ -1235,10 +1235,10 @@ code, pre { font-family: Arial, sans-serif; }
   display: flex;
   align-items: center;
   color: var(--navy);
-  font: 400 clamp(76px, 8vw, 150px)/1 Arial, sans-serif;
+  font: 400 clamp(90px, 10vw, 180px)/1 Arial, sans-serif;
   letter-spacing: -.045em;
   white-space: nowrap;
-  text-transform: uppercase;
+  text-transform: none;
   animation: about-title-marquee 23s linear infinite;
 }
 
@@ -1318,7 +1318,7 @@ code, pre { font-family: Arial, sans-serif; }
 @media (max-width: 700px) {
   .about-hero { height: 290svh; }
   .about-hero-stage { min-height: 0; }
-  .about-hero-title { top: 31%; font-size: clamp(51px, 13vw, 90px); }
+  .about-hero-title { top: 31%; font-size: clamp(60px, 15vw, 105px); }
   .about-hero-tagline { top: 68%; font-size: clamp(15px, 4vw, 19px); }
   .about-hero-tag, .about-hero-bottom { bottom: 24px; }
   .about-hero-tag { left: 20px; font-size: 10px; }

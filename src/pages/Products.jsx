@@ -14,7 +14,7 @@ export default function Products() {
     <div className="products-page">
       <ExpandingHero
         tag="Our Range"
-        title="PRODUCTS"
+        title="Products"
         tagline="Explore our portfolio of generic finished dosage forms — tablets, capsules, oral liquids and sachets — manufactured to exacting quality standards."
         image={heroImage.url}
         imageAlt={heroImage.alt}
